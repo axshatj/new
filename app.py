@@ -1,16 +1,13 @@
 import streamlit as st
-import pickle
+import joblib  # Replace pickle with joblib
 import numpy as np
 import re
 from nltk.corpus import stopwords
 from keras.preprocessing.sequence import pad_sequences
 
-# Load the saved model and tokenizer
-with open('model.pkl', 'rb') as file:
-    model = pickle.load(file)
-
-with open('tokenizer.pkl', 'rb') as file:
-    tokenizer = pickle.load(file)
+# Load the saved model and tokenizer using joblib
+model = joblib.load('model.joblib')  # Changed extension to .joblib
+tokenizer = joblib.load('tokenizer.joblib')
 
 # Preprocessing function
 def preprocess_text(text):
