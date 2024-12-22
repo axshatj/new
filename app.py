@@ -4,11 +4,11 @@ import numpy as np
 import re
 from nltk.corpus import stopwords
 from keras.preprocessing.sequence import pad_sequences
-
+import nltk
 # Load the saved model and tokenizer using joblib
 model = joblib.load('model.joblib')  # Changed extension to .joblib
 tokenizer = joblib.load('tokenizer.joblib')
-
+nltk.download('stopwords')
 # Preprocessing function
 def preprocess_text(text):
     TAG_RE = re.compile(r'<[^>]+>')
